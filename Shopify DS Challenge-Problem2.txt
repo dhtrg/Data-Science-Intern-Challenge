@@ -1,0 +1,36 @@
+2.
+
+a. Query:
+SELECT COUNT(*) 
+FROM Shippers 
+NATURAL JOIN Orders 
+WHERE ShipperName = "Speedy Express";
+
+Result:
+54
+
+b.Query:
+SELECT LastName, COUNT(OrderID) as no_of_ords
+FROM Employees 
+NATURAL JOIN Orders
+GROUP BY EmployeeID
+ORDER BY no_of_ords DESC
+LIMIT 1;
+
+Result:
+Peacock	40
+
+c.
+Query:
+SELECT ProductName, SUM(Quantity) AS no_of_products
+FROM Products
+NATURAL JOIN OrderDetails
+NATURAL JOIN Orders
+NATURAL JOIN Customers
+WHERE Country = 'Germany'
+GROUP BY ProductName
+ORDER BY no_of_products DESC
+LIMIT 1;
+
+Result:
+Boston Crab Meat	160
